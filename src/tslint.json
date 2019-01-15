@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "tslint:recommended"
+  ],
+  "rules": {
+    "trailing-comma": false,
+    "ordered-imports": false,
+    "no-console": { "severity": "warning" }
+  }
+}
