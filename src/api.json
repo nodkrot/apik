@@ -8,7 +8,59 @@
   "servers": [{
     "url": "https://api.test.com/openapitest/v1"
   }],
-  "paths": {},
+  "paths": {
+    "/pets": {
+			"get": {
+				"summary": "List all pets",
+				"operationId": "listPets",
+				"tags": [
+					"pets"
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "How many items to return at one time (max 100)",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An paged array of pets",
+						"headers": {
+							"x-next": {
+								"description": "A link to the next page of responses",
+								"schema": {
+									"type": "string"
+								}
+							}
+						},
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Recipe"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "unexpected error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Recipe"
+								}
+							}
+						}
+					}
+				}
+      }
+    }
+  },
   "components": {
     "schemas": {
       "Recipe": {
@@ -48,7 +100,8 @@
             }
           },
           "createdAt": {
-            "type": "date-time"
+            "type": "string",
+            "format": "date-time"
           },
           "authorId": {
             "type": "string"
@@ -93,7 +146,7 @@
         "type": "object",
         "properties": {
           "value": {
-            "type": "decimal"
+            "type": "number"
           },
           "unit": {
             "$ref": "#/components/schemas/Unit"
@@ -108,6 +161,9 @@
       "AccountForm": {
         "type": "object",
         "properties": {
+          "blob": {
+            "type": "object"
+          },
           "username": {
             "type": "string"
           },

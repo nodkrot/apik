@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && nodemon --exec 'ts-node src/index.ts' --watch src --ext ts"
+    "start": "nodemon --exec 'ts-node src/index.ts' --watch src --ext ts"
   },
   "author": "Vyacheslav Alayev",
   "license": "MIT",
@@ -13,6 +13,9 @@
     "ajv": "^6.7.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "redoc": "^2.0.0-rc.1",
+    "redoc-cli": "^0.7.0",
+    "ts-simple-ast": "^21.0.0",
     "typescript": "^3.2.2"
   },
   "devDependencies": {

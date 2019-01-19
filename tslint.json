@@ -5,6 +5,8 @@
   "rules": {
     "trailing-comma": false,
     "ordered-imports": false,
+    "max-classes-per-file": false,
+    "object-literal-sort-keys": false,
     "no-console": { "severity": "warning" }
   }
 }
